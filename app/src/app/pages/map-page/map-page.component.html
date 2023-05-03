@@ -1,0 +1,100 @@
+<div [ngClass]="loading ? 'loading-layout' : 'd-none'">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3 overflow-auto filters">
+      <p-card>
+        <h5>
+          {{ 'F7967E8C' | translate }}
+        </h5>
+        <app-dropdown
+          [options]="functions"
+          [(ngModel)]="selectedFunction"
+        ></app-dropdown>
+        <app-dropdown
+          [options]="categories"
+          [(ngModel)]="selectedCategory"
+        ></app-dropdown>
+      </p-card>
+      <div class="mt-2">
+        <p-card>
+          <div>
+            <h5>Seleccione los filtros</h5>
+            <p-accordion>
+              <p-accordionTab header="Filtro de estratos">
+                <div *ngFor="let estrato of estratos">
+                  <p-checkbox
+                    name="estratoGroup"
+                    [value]="estrato.code"
+                    [(ngModel)]="selectedEstratos"
+                  ></p-checkbox>
+                  <label [for]="estrato.code" class="px-2">{{
+                    estrato.name | translate
+                  }}</label>
+                </div>
+              </p-accordionTab>
+              <p-accordionTab header="Filtro por nivel de ingresos">
+                <p>{{ ingresos[0] + ' - ' + ingresos[1] }}</p>
+                <p-slider
+                  [(ngModel)]="ingresos"
+                  [min]="1"
+                  [max]="10"
+                  [range]="true"
+                ></p-slider>
+              </p-accordionTab>
+              <p-accordionTab header="Filtro por indice">
+                <p>{{ indice[0] / 100 + ' - ' + indice[1] / 100 }}</p>
+                <p-slider
+                  [(ngModel)]="indice"
+                  [min]="0"
+                  [max]="100"
+                  [range]="true"
+                ></p-slider>
+              </p-accordionTab>
+              <p-accordionTab header="Filtro por nivel educativo">
+                <div *ngFor="let educativo of educativos">
+                  <p-checkbox
+                    name="educativoGroup"
+                    [value]="educativo.code"
+                    [(ngModel)]="selectedEducativo"
+                  ></p-checkbox>
+                  <label [for]="educativo.code" class="px-2">{{
+                    educativo.name | translate
+                  }}</label>
+                </div>
+              </p-accordionTab>
+            </p-accordion>
+          </div>
+        </p-card>
+      </div>
+      <div class="mt-2">
+        <p-card>
+          <h5>
+            {{ '29ED889F' | translate }}
+          </h5>
+          <app-dropdown
+            [options]="subsidies"
+            [(ngModel)]="selectedSubsidies"
+          ></app-dropdown>
+        </p-card>
+      </div>
+      <div class="mt-2">
+        <p-card>
+          <p-button label="Limpiar" (onClick)="clear()"></p-button>
+          <p-button
+            class="px-2"
+            label="Generar"
+            (onClick)="generate()"
+          ></p-button>
+        </p-card>
+      </div>
+    </div>
+    <div class="col p-0">
+      <p-panel header="{{ 'F12BB5C4' | translate }}">
+        <p>Descripcion: {{ description | async }}</p>
+        <app-map [zonas]="zonasList"></app-map>
+      </p-panel>
+    </div>
+  </div>
+</div>

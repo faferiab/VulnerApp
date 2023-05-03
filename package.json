@@ -1,0 +1,18 @@
+{
+  "name": "node-starter",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start:fe": "cd app && npm start",
+    "start:be": "cd api && npm start",
+    "build": "npm run build --workspace=app && rm -rf api/build && cp -r app/build api"
+  },
+  "workspaces": [
+    "api",
+    "app"
+  ],
+  "devDependencies": {
+    "@angular/cli": "~14.0.0",
+    "typescript": "~4.7.2"
+  }
+}

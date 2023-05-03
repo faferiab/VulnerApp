@@ -1,0 +1,8 @@
+<p-dropdown [options]="options" [(ngModel)]="innerValue">
+  <ng-template let-item pTemplate="item">
+    <span>{{ item.name | translate }}</span>
+  </ng-template>
+  <ng-template let-item pTemplate="selectedItem">
+    <div>{{ item.name | translate }}</div>
+  </ng-template>
+</p-dropdown>

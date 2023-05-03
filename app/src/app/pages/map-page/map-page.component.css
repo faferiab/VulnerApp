@@ -1,0 +1,54 @@
+.filters {
+  background-color: lightgray;
+  padding-top: 1rem;
+  min-width: 235px;
+  height: 80vh;
+}
+
+::ng-deep .p-dropdown.p-component {
+  width: 100%;
+}
+
+::ng-deep .p-card .p-card-content {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+::ng-deep #d3-svg {
+  overflow: visible;
+}
+
+.loading-layout {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 7vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1003;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edge {
+  fill: none;
+  stroke: #252525;
+  stroke-width: 1px;
+  stroke-opacity: 0.1;
+}
+
+::ng-deep .travel-point {
+  animation: travel-ball 2s ease-out infinite;
+}
+
+@keyframes travel-ball {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}

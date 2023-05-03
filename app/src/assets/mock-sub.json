@@ -1,0 +1,468 @@
+{
+  "data": [
+    {
+      "utam": "UTAM1",
+      "value": 4
+    },
+    {
+      "utam": "UTAM10",
+      "value": 1
+    },
+    {
+      "utam": "UTAM100",
+      "value": 3
+    },
+    {
+      "utam": "UTAM101",
+      "value": 3
+    },
+    {
+      "utam": "UTAM102",
+      "value": 1
+    },
+    {
+      "utam": "UTAM103",
+      "value": 4
+    },
+    {
+      "utam": "UTAM104",
+      "value": 3
+    },
+    {
+      "utam": "UTAM105",
+      "value": 4
+    },
+    {
+      "utam": "UTAM106",
+      "value": 3
+    },
+    {
+      "utam": "UTAM107",
+      "value": 3
+    },
+    {
+      "utam": "UTAM108",
+      "value": 1
+    },
+    {
+      "utam": "UTAM109",
+      "value": 1
+    },
+    {
+      "utam": "UTAM11",
+      "value": 1
+    },
+    {
+      "utam": "UTAM110",
+      "value": 1
+    },
+    {
+      "utam": "UTAM111",
+      "value": 1
+    },
+    {
+      "utam": "UTAM112",
+      "value": 1
+    },
+    {
+      "utam": "UTAM113",
+      "value": 3
+    },
+    {
+      "utam": "UTAM114",
+      "value": 3
+    },
+    {
+      "utam": "UTAM115",
+      "value": 1
+    },
+    {
+      "utam": "UTAM116",
+      "value": 4
+    },
+    {
+      "utam": "UTAM12",
+      "value": 2
+    },
+    {
+      "utam": "UTAM13",
+      "value": 1
+    },
+    {
+      "utam": "UTAM14",
+      "value": 2
+    },
+    {
+      "utam": "UTAM15",
+      "value": 3
+    },
+    {
+      "utam": "UTAM16",
+      "value": 1
+    },
+    {
+      "utam": "UTAM17",
+      "value": 2
+    },
+    {
+      "utam": "UTAM18",
+      "value": 2
+    },
+    {
+      "utam": "UTAM19",
+      "value": 2
+    },
+    {
+      "utam": "UTAM2",
+      "value": 4
+    },
+    {
+      "utam": "UTAM20",
+      "value": 3
+    },
+    {
+      "utam": "UTAM21",
+      "value": 2
+    },
+    {
+      "utam": "UTAM22",
+      "value": 3
+    },
+    {
+      "utam": "UTAM23",
+      "value": 2
+    },
+    {
+      "utam": "UTAM24",
+      "value": 1
+    },
+    {
+      "utam": "UTAM25",
+      "value": 1
+    },
+    {
+      "utam": "UTAM26",
+      "value": 1
+    },
+    {
+      "utam": "UTAM27",
+      "value": 3
+    },
+    {
+      "utam": "UTAM28",
+      "value": 2
+    },
+    {
+      "utam": "UTAM29",
+      "value": 1
+    },
+    {
+      "utam": "UTAM3",
+      "value": 4
+    },
+    {
+      "utam": "UTAM30",
+      "value": 1
+    },
+    {
+      "utam": "UTAM31",
+      "value": 3
+    },
+    {
+      "utam": "UTAM32",
+      "value": 1
+    },
+    {
+      "utam": "UTAM33",
+      "value": 1
+    },
+    {
+      "utam": "UTAM34",
+      "value": 1
+    },
+    {
+      "utam": "UTAM35",
+      "value": 4
+    },
+    {
+      "utam": "UTAM36",
+      "value": 2
+    },
+    {
+      "utam": "UTAM37",
+      "value": 2
+    },
+    {
+      "utam": "UTAM38",
+      "value": 2
+    },
+    {
+      "utam": "UTAM39",
+      "value": 4
+    },
+    {
+      "utam": "UTAM40",
+      "value": 1
+    },
+    {
+      "utam": "UTAM41",
+      "value": 1
+    },
+    {
+      "utam": "UTAM42",
+      "value": 3
+    },
+    {
+      "utam": "UTAM43",
+      "value": 1
+    },
+    {
+      "utam": "UTAM44",
+      "value": 2
+    },
+    {
+      "utam": "UTAM45",
+      "value": 2
+    },
+    {
+      "utam": "UTAM46",
+      "value": 1
+    },
+    {
+      "utam": "UTAM47",
+      "value": 2
+    },
+    {
+      "utam": "UTAM48",
+      "value": 1
+    },
+    {
+      "utam": "UTAM49",
+      "value": 2
+    },
+    {
+      "utam": "UTAM50",
+      "value": 2
+    },
+    {
+      "utam": "UTAM51",
+      "value": 1
+    },
+    {
+      "utam": "UTAM52",
+      "value": 1
+    },
+    {
+      "utam": "UTAM53",
+      "value": 1
+    },
+    {
+      "utam": "UTAM54",
+      "value": 4
+    },
+    {
+      "utam": "UTAM55",
+      "value": 2
+    },
+    {
+      "utam": "UTAM56",
+      "value": 1
+    },
+    {
+      "utam": "UTAM57",
+      "value": 1
+    },
+    {
+      "utam": "UTAM570",
+      "value": 1
+    },
+    {
+      "utam": "UTAM571",
+      "value": 1
+    },
+    {
+      "utam": "UTAM572",
+      "value": 1
+    },
+    {
+      "utam": "UTAM573",
+      "value": 1
+    },
+    {
+      "utam": "UTAM574",
+      "value": 1
+    },
+    {
+      "utam": "UTAM575",
+      "value": 1
+    },
+    {
+      "utam": "UTAM58",
+      "value": 2
+    },
+    {
+      "utam": "UTAM59",
+      "value": 1
+    },
+    {
+      "utam": "UTAM60",
+      "value": 4
+    },
+    {
+      "utam": "UTAM61",
+      "value": 1
+    },
+    {
+      "utam": "UTAM62",
+      "value": 1
+    },
+    {
+      "utam": "UTAM64",
+      "value": 1
+    },
+    {
+      "utam": "UTAM65",
+      "value": 1
+    },
+    {
+      "utam": "UTAM66",
+      "value": 4
+    },
+    {
+      "utam": "UTAM67",
+      "value": 4
+    },
+    {
+      "utam": "UTAM68",
+      "value": 1
+    },
+    {
+      "utam": "UTAM69",
+      "value": 2
+    },
+    {
+      "utam": "UTAM70",
+      "value": 1
+    },
+    {
+      "utam": "UTAM71",
+      "value": 1
+    },
+    {
+      "utam": "UTAM72",
+      "value": 2
+    },
+    {
+      "utam": "UTAM73",
+      "value": 1
+    },
+    {
+      "utam": "UTAM74",
+      "value": 1
+    },
+    {
+      "utam": "UTAM75",
+      "value": 1
+    },
+    {
+      "utam": "UTAM76",
+      "value": 3
+    },
+    {
+      "utam": "UTAM77",
+      "value": 1
+    },
+    {
+      "utam": "UTAM78",
+      "value": 2
+    },
+    {
+      "utam": "UTAM79",
+      "value": 1
+    },
+    {
+      "utam": "UTAM80",
+      "value": 2
+    },
+    {
+      "utam": "UTAM81",
+      "value": 1
+    },
+    {
+      "utam": "UTAM82",
+      "value": 1
+    },
+    {
+      "utam": "UTAM83",
+      "value": 4
+    },
+    {
+      "utam": "UTAM84",
+      "value": 2
+    },
+    {
+      "utam": "UTAM85",
+      "value": 1
+    },
+    {
+      "utam": "UTAM86",
+      "value": 1
+    },
+    {
+      "utam": "UTAM87",
+      "value": 1
+    },
+    {
+      "utam": "UTAM88",
+      "value": 3
+    },
+    {
+      "utam": "UTAM89",
+      "value": 1
+    },
+    {
+      "utam": "UTAM9",
+      "value": 2
+    },
+    {
+      "utam": "UTAM90",
+      "value": 2
+    },
+    {
+      "utam": "UTAM91",
+      "value": 2
+    },
+    {
+      "utam": "UTAM92",
+      "value": 3
+    },
+    {
+      "utam": "UTAM93",
+      "value": 2
+    },
+    {
+      "utam": "UTAM94",
+      "value": 2
+    },
+    {
+      "utam": "UTAM95",
+      "value": 3
+    },
+    {
+      "utam": "UTAM96",
+      "value": 1
+    },
+    {
+      "utam": "UTAM97",
+      "value": 2
+    },
+    {
+      "utam": "UTAM98",
+      "value": 1
+    },
+    {
+      "utam": "UTAM99",
+      "value": 3
+    }
+  ]
+}
