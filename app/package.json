@@ -9,9 +9,8 @@
     "test": "ng test"
   },
   "private": true,
-  "dependencies": {
+  "devDependencies": {
     "@angular/animations": "^14.0.0",
-    "@angular/cli": "~14.0.0",
     "@angular/common": "^14.0.0",
     "@angular/compiler": "^14.0.0",
     "@angular/core": "^14.0.0",
@@ -28,9 +27,7 @@
     "primeng": "^14.2.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
-  },
-  "devDependencies": {
+    "zone.js": "~0.11.4",
     "@angular-devkit/build-angular": "^14.0.7",
     "@angular/cli": "~14.0.7",
     "@angular/compiler-cli": "^14.0.0",
