@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npm run build && npm run serve",
+    "start": "npm run serve",
     "serve": "node -r ./dist/server.js",
     "build": "npm run build-ts",
     "start:watch": "nodemon src/server.ts",
