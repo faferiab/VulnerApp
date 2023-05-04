@@ -20,9 +20,9 @@
       <div class="mt-2">
         <p-card>
           <div>
-            <h5>Seleccione los filtros</h5>
+            <h5>{{ '962D528D' | translate }}</h5>
             <p-accordion>
-              <p-accordionTab header="Filtro de estratos">
+              <p-accordionTab header="{{ '4F149B82' | translate }}">
                 <div *ngFor="let estrato of estratos">
                   <p-checkbox
                     name="estratoGroup"
@@ -34,7 +34,7 @@
                   }}</label>
                 </div>
               </p-accordionTab>
-              <p-accordionTab header="Filtro por nivel de ingresos">
+              <p-accordionTab header="{{ '4A187CB3' | translate }}">
                 <p>{{ ingresos[0] + ' - ' + ingresos[1] }}</p>
                 <p-slider
                   [(ngModel)]="ingresos"
@@ -43,7 +43,7 @@
                   [range]="true"
                 ></p-slider>
               </p-accordionTab>
-              <p-accordionTab header="Filtro por indice">
+              <p-accordionTab header="{{ '296FC554' | translate }}">
                 <p>{{ indice[0] / 100 + ' - ' + indice[1] / 100 }}</p>
                 <p-slider
                   [(ngModel)]="indice"
@@ -52,7 +52,7 @@
                   [range]="true"
                 ></p-slider>
               </p-accordionTab>
-              <p-accordionTab header="Filtro por nivel educativo">
+              <p-accordionTab header="{{ 'F1E17D5E' | translate }}">
                 <div *ngFor="let educativo of educativos">
                   <p-checkbox
                     name="educativoGroup"
@@ -81,10 +81,10 @@
       </div>
       <div class="mt-2">
         <p-card>
-          <p-button label="Limpiar" (onClick)="clear()"></p-button>
+          <p-button label="{{ '13733575' | translate }}" (onClick)="clear()"></p-button>
           <p-button
             class="px-2"
-            label="Generar"
+            label="{{ 'C845C2B9' | translate }}"
             (onClick)="generate()"
           ></p-button>
         </p-card>
@@ -92,7 +92,7 @@
     </div>
     <div class="col p-0">
       <p-panel header="{{ 'F12BB5C4' | translate }}">
-        <p>Descripcion: {{ description | async }}</p>
+        <p>{{ '991D515A' | translate }} : {{ description | async }}</p>
         <app-map [zonas]="zonasList"></app-map>
       </p-panel>
     </div>
