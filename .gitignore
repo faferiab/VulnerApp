@@ -1,1 +1,3 @@
 node_modules
+api/build/assets/mock-ai.json
+api/build/assets/mock-sub.json
