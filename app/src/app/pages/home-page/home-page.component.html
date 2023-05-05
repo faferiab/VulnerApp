@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-8">
       <p-tabView>
-        <p-tabPanel header="Que es esto?">
+        <p-tabPanel header="Qué es esto?">
           <p>“VulnerApp” es un visualizador de datos asociados al transporte público de la ciudad de Bogotá y Soacha,
             estimados usando la información de la Encuesta de Movilidad de Bogotá 2019, en el podrá explorar un set de
             variables de movilidad y su distribución por UTAM (Unidad Territorial de Análisis de la Movilidad), de la
@@ -13,7 +13,7 @@
             cobertura de los subsidios a la tarifa de transporte público.
           </p>
         </p-tabPanel>
-        <p-tabPanel header="De donde vienen los datos?">
+        <p-tabPanel header="De dónde vienen los datos?">
           <p>Los datos utilizados para este visualizador provienen de la Encuesta de Movilidad de Bogotá 2019 y han sido
             procesados utilizando python con el fin de estimar un índice de accesibilidad a través del transporte
             público a las funciones básicas de la ciudad (Trabajo, estudio, salud, recreación y cultura) a partir de las
@@ -25,6 +25,74 @@
             <br><br>
             Próximamente estarán disponibles para su consulta la tesis y el repositorio GitHub asociados al proyecto de
             investigación.
+          </p>
+        </p-tabPanel>
+        <p-tabPanel header="Cómo se usa?">
+          <p>
+            VulnerApp permite comparar y revisar para las distintas zonas de la ciudad las variables de movilidad
+            asociadas a cada motivo de viaje (Trabajo, Estudio, Salud, Recreación y cultura):
+          </p>
+          <ul>
+            <li>Tiempo de viaje: cuánto tardo de un lugar a otro</li>
+            <li>Tiempo de acceso (caminata): cuánto tardó caminando hasta el paradero</li>
+            <li>Tiempo de espera: Cuánto se demora en llegar el bus</li>
+            <li>Costo adicional a la tarifa del viaje: Cuánto pagó además del pasaje</li>
+            <li>Probabilidad de costo adicional: Qué tanto riesgo tengo de tener que pagar más para ir de un lugar a
+              otro</li>
+            <li>Experiencia de viaje: Que tan mala es mi experiencia viajando</li>
+            <li>Número de etapas: Cuántos transbordos debo hacer para ir de un lugar a otro</li>
+            <li>Índice de accesibilidad: Qué tan fácil es acceder al motivo de viaje según la zona de origen</li>
+          </ul>
+          <p>
+            A su vez el panel de filtros contiene varios factores socioeconómicos que puede revisar, por ejemplo, nivel
+            de ingresos (SMMLV), nivel educativo entre otros y seleccionar todos o sólo algunos de ellos que quiera
+            consultar cómo se mueven en la ciudad
+            <br><br>
+            Adicionalmente, podrá revisar la cobertura de los subsidios al transporte público, seleccionando uno en el
+            panel inferior y moviendo el control deslizante de la parte superior derecha del mapa para ir y venir
+            fácilmente entre la vista de factores socioeconómicos y la de subsidios.
+            <br><br>
+            Por último, podrá consultar los principales destinos para cada motivo según la zona donde inicia el viaje,
+            dando click en ella y esperando un par de segundos.
+            <br><br>
+            Recuerde que podrá generar y limpiar sus consultas todas las veces que desee.
+            <br><br>
+            Tiene sugerencias para mejorar el visualizador o incluso cómo se comunica la información o cómo hacer más
+            amigable la interfaz, no sea tímida o tímido y escribanos al correo electrónico con sus ideas
+          </p>
+        </p-tabPanel>
+        <p-tabPanel header="Indice de accesibilidad">
+          <p>
+            Este visualizador contiene además un índice de accesibilidad haciendo uso del transporte público a las
+            oportunidades que ofrece la ciudad, calculado, durante el desarrollo de la tesis mencionada, que toma como
+            insumos los valores para cada motivo de viaje de las variable de movilidad:
+          </p>
+          <ul>
+            <li>Tiempo de viaje</li>
+            <li>Tiempo de acceso (caminata)</li>
+            <li>Tiempo de espera</li>
+            <li>Probabilidad de costo adicional</li>
+            <li>Experiencia de viaje</li>
+            <li>Número de etapas</li>
+          </ul>
+          <p>
+            Mediante un método estadístico multivariado ACP (Análisis de componentes principales) se estima una medida
+            sintética que recopila todas estas
+            variables y que una vez normalizado entre valores de 0 a 1 permite comprender las condiciones de
+            accesibilidad de cada zona de origen de la ciudad. Donde 0 es la menor vulnerabilidad, es decir, las mejores
+            condiciones de accesibilidad y 1 es la peor accesibilidad posible, que traduce en mayor vulnerabilidad y
+            mayores limitaciones de acceso, ya sea al trabajo, estudio o a servicios de salud, recreación y cultura.
+            <br><br>
+            Próximamente estarán disponibles para su consulta la tesis y el repositorio GitHub asociados al proyecto de
+            investigación, dónde podrá indagar más al respecto de esta metodología o en su defecto escribir a
+            lcfernandezpe@gmail.com
+          </p>
+        </p-tabPanel>
+        <p-tabPanel header="Créditos">
+          <p>
+            <strong>Desarrollo:</strong> Freddy Feria y Carolina Fernández
+            <br>
+            <Strong>Procesamiento de datos:</Strong> Carolina Fernández
           </p>
         </p-tabPanel>
       </p-tabView>
