@@ -1,6 +1,6 @@
 {
-  "name": "api-test",
-  "version": "0.0.0",
+  "name": "backend-vulnerapp",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "npm run serve",

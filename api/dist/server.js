@@ -29,8 +29,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const queryGraphQl = __importStar(require("./controllers/queryGraphql"));
 const path = require("path");
+const os = require("os");
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 4000;
+const HOST = os.hostname();
 app.use((req, _, next) => {
     console.log('Time:', Date.now(), req.originalUrl);
     next();
@@ -39,5 +41,5 @@ app.use(express_1.default.static('build'));
 app.get('/api/info', queryGraphQl.getUtamByFilter);
 app.get('/api/od', queryGraphQl.getOdByFilter);
 app.get('/*', (_, res) => res.sendFile(path.resolve('build/index.html')));
-app.listen(PORT, () => console.log(`Server is running here https://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server is running here https://${HOST}:${PORT}`));
 //# sourceMappingURL=server.js.map
