@@ -1,7 +1,7 @@
 <div class="container h-50">
   <div class="row justify-content-center">
-    <div class="col-8">
-      <p-tabView>
+    <div class="col-9">
+      <p-tabView [scrollable]="true">
         <p-tabPanel header="Qué es esto?">
           <p>“VulnerApp” es un visualizador de datos asociados al transporte público de la ciudad de Bogotá y Soacha,
             estimados usando la información de la Encuesta de Movilidad de Bogotá 2019, en el podrá explorar un set de
@@ -88,12 +88,66 @@
             lcfernandezpe@gmail.com
           </p>
         </p-tabPanel>
-        <p-tabPanel header="Créditos">
+        <p-tabPanel header="Qué encontramos?">
           <p>
-            <strong>Desarrollo:</strong> Freddy Feria y Carolina Fernández
-            <br>
-            <Strong>Procesamiento de datos:</Strong> Carolina Fernández
+            La baja accesibilidad es un factor que intensifica la vulnerabilidad socioeconómica, por lo que es por sí
+            misma una dimensión de la vulnerabilidad, que en este caso tiene un ámbito espacial.
+            <br><br>
+            Se logró construir una medida sintética que mide el grado de vulnerabilidad asociado, permitiendo
+            identificar en el territorio aquellas zonas donde habitan personas con mayores desventajas y a las que
+            cualquier cambio desfavorable en el servicio de transporte público les afectará drásticamente
+            <br><br>
+            No es coincidencia que las zonas con peores niveles de accesibilidad según el índice calculado, son a su vez
+            aquellas que tienen una alta de concentración de condiciones de vulnerabilidad socioeconómica, lo que
+            demuestra que existen marcadas diferencias y desigualdades en el territorio, donde aquellos que son más
+            vulnerables ven limitadas desde una noción espacial y de movilidad su acceso a las oportunidades. Estas
+            oportunidades pueden ser insumos que permitan la movilidad social de las comunidades, por lo que ver
+            limitada esta accesibilidad, solo profundiza la vulnerabilidad y ayuda a contribuir a procesos de exclusión
+            social.
+            <br><br>
+            Se observa que aquellas UTAM que tienen índices más cercanos a 1, lo que indica vulnerabilidad social
+            asociada a accesibilidad, coinciden con aquellas unidades territoriales donde se concentran mayores valores
+            de las variables de movilidad. Es decir, aquellas zonas donde los habitantes deben incurrir en mayores
+            esfuerzos para acceder a la ciudad, esto significa que el índice refleja apropiadamente dicha vulnerabilidad
+            que está condicionada por la movilidad.
+            <br><br>
+            La revisión de los niveles de accesibilidad, al ser una expresión espacial del potencial de las
+            oportunidades y las posibilidades de alcanzarlas, brinda una posibilidad de revisar socio espacialmente la
+            vulnerabilidad social, dado que la baja accesibilidad como desventaja social está vinculada directamente a
+            las dinámicas de movilidad del territorio.
+            <br><br>
+            El hecho que las mujeres sean quienes principalmente hacen uso de esta oferta de transporte indica que son
+            quienes se ven más reflejadas y afectadas por los índices de accesibilidad
           </p>
+        </p-tabPanel>
+        <p-tabPanel header="Créditos">
+          <div class="d-flex">
+            <span>
+              <img class="rounded-circle mx-4"
+                src="https://media.licdn.com/dms/image/C4E03AQFrZHWqahGkiw/profile-displayphoto-shrink_100_100/0/1650749641730?e=1689811200&v=beta&t=44vsmzTOsaEdRiE1bU8I7ezBGbVFhFnzY-_YYwop32s"
+                alt="">
+            </span>
+            <span class="d-flex align-items-center">
+              <p>
+                <strong>Freddy Feria - Desarrollo web: </strong>
+                Desarrollador Fullstack con más de 8 años de experiencia en desarrollo de aplicaciones web
+              </p>
+            </span>
+          </div>
+
+          <div class="d-flex mt-4">
+            <span>
+              <img class="rounded-circle mx-4"
+                src="https://media.licdn.com/dms/image/C4E03AQGDorbKPrsVkA/profile-displayphoto-shrink_100_100/0/1555444550664?e=1689811200&v=beta&t=1CYTswk2n0_LlvOwhbFiNRyzhTTqHuS3PgRJCs3uAWQ"
+                alt="">
+            </span>
+            <span class="d-flex align-items-center">
+              <p>
+                <strong>Carolina Fernandez - Procesamiento y análisis de datos: </strong>
+            Diseñadora industrial, magister en transporte, investigadora y consultora en movilidad sostenible
+              </p>
+            </span>
+          </div>
         </p-tabPanel>
       </p-tabView>
     </div>

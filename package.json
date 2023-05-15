@@ -5,7 +5,7 @@
   "scripts": {
     "start:fe": "cd app && npm start",
     "start:be": "cd api && npm start",
-    "build:fe": "npm run build --workspace=app && rm -rf api/build && cp -r app/build api && npm run build --workspace=api",
+    "package": "npm run build --workspace=app && rm -rf api/build && cp -r app/build api && npm run build --workspace=api",
     "start": "npm run start --workspace=api"
   },
   "workspaces": [

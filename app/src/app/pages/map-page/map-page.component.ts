@@ -87,6 +87,7 @@ export class MapPageComponent implements OnInit {
 
   clear() {
     this.selectedEstratos = [];
+    this.selectedEducativo = [];
     this.ingresos = [1, 10];
     this.indice = [0, 100];
   }

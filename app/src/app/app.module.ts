@@ -12,6 +12,7 @@ import { LanguageService } from './core/services/language.service';
 import { HomePageComponent, MapPageComponent } from './pages';
 import { QueryMapService } from './pages/map-page/services/query-map.service';
 import { PrimengModule } from './primeng/primeng.module';
+import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 
 const LanguageInitApp = {
   provide: APP_INITIALIZER,
@@ -29,6 +30,9 @@ const LanguageInitApp = {
     HttpClientModule,
     PrimengModule,
     AppRoutingModule,
+    NgxGoogleAnalyticsModule.forRoot('G-HTS7Q45KS5'),
+    NgxGoogleAnalyticsRouterModule
+
   ],
   declarations: [
     AppComponent,
@@ -44,4 +48,4 @@ const LanguageInitApp = {
   providers: [QueryMapService, LanguageInitApp, LanguageService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

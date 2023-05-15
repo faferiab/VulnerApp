@@ -14,7 +14,8 @@ export class TranslatePipe implements PipeTransform {
     });
   }
 
-  transform(key: string): string {
-    return this.lang[key] || key;
+  transform(key: string | null): string {
+    let sanitKey = key !== null ? key : '';
+    return this.lang[sanitKey] || sanitKey;
   }
 }

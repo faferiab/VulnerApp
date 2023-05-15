@@ -3,21 +3,21 @@ import { Item } from '../interfaces/api-types';
 export function getDescription(category: Item) {
   switch (category.code) {
     case '01':
-      return 'El tiempo de viaje está en minutos según la zona (UTAM) de origen';
+      return '9A71505D';
     case '02':
-      return 'El tiempo de espera (cuánto tarda en llegar el bus) está en minutos según la zona (UTAM) de origen';
+      return '0DA5930F';
     case '03':
-      return 'El tiempo de acceso (caminata desde la casa a la estación / paradero) está en minutos según la zona (UTAM) de origen';
+      return '78CE29CD';
     case '04':
-      return 'Número de transferencias (transbordos) realizadas durante el viaje según la zona (UTAM) de origen';
+      return 'D566158F';
     case '05':
-      return 'Probabilidad de pagar un sobrecosto adicional a la tarifa del viaje según la zona (UTAM) de origen';
+      return '27AEBE7D';
     case '06':
-      return 'Nivel de experiencia negativa donde 0 es la mejor experiencia de viaje y 5 la peor experiencia de viaje';
+      return 'A1FB7A18';
     case '07':
-      return 'Sobrecosto adicional en pesos COP a la tarifa del modo principal de transporte';
+      return '627E9ED8';
     case '08':
-      return 'Valor del índice de accesibilidad asociado a la función, donde 0 es menor vulnerabilidad y 1 mayor vulnerabiilidad ';
+      return '3749E125';
     default:
       return '';
   }

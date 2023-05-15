@@ -23,6 +23,7 @@ export const UtamBuilder = (
   pane: string,
   odFunction: Function
 ) => {
+  document.getElementsByClassName('leaflet-marker-icon').item(0)?.remove();
   const [minValue, maxValue] = getMaxMinValue(data);
   const color = getColorRange(minValue, maxValue);
   const tempZonificacion = zonificacion

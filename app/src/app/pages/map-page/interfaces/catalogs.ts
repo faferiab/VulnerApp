@@ -36,7 +36,6 @@ const estratos = (): Item[] => {
 const nivelesEducativos = (): Item[] => {
   return [
     { name: 'A5A4AD76', code: 'edu_basica' },
-    { name: '8CF9E4C9', code: 'edu_tec' },
     { name: '100220F7', code: 'edu_univ' },
   ];
 };

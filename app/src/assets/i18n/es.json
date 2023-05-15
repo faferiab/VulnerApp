@@ -37,7 +37,14 @@
   "13733575": "Limpiar",
   "C845C2B9": "Generar",
   "991D515A": "Descripción de la variable de movilidad",
-
+  "9A71505D": "El tiempo de viaje está en minutos según la zona (UTAM) de origen",
+  "0DA5930F": "El tiempo de espera (cuánto tarda en llegar el bus) está en minutos según la zona (UTAM) de origen",
+  "78CE29CD": "El tiempo de acceso (caminata desde la casa a la estación… paradero) está en minutos según la zona (UTAM) de origen",
+  "D566158F": "Número de transferencias (transbordos) realizadas durante el viaje según la zona (UTAM) de origen",
+  "27AEBE7D": "Probabilidad de pagar un sobrecosto adicional a la tarifa del viaje según la zona (UTAM) de origen",
+  "A1FB7A18": "Nivel de experiencia negativa donde 0 es la mejor experiencia de viaje y 5 la peor experiencia de viaje",
+  "627E9ED8": "Sobrecosto adicional en pesos COP a la tarifa del modo principal de transporte",
+  "3749E125": "Valor del índice de accesibilidad asociado a la función, donde 0 es menor vulnerabilidad y 1 mayor vulnerabiilidad",
   
   "NA": ""
 }

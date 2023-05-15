@@ -95,7 +95,7 @@
     </div>
     <div class="col p-0">
       <p-panel header="{{ 'F12BB5C4' | translate }}">
-        <p>{{ '991D515A' | translate }} : {{ description | async }}</p>
+        <p>{{ '991D515A' | translate }} : {{ (description | async) | translate }}</p>
         <app-map [zonas]="zonasList"></app-map>
       </p-panel>
     </div>
