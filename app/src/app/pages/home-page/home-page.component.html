@@ -2,128 +2,80 @@
   <div class="row justify-content-center">
     <div class="col-9">
       <p-tabView [scrollable]="true">
-        <p-tabPanel header="Qué es esto?">
-          <p>“VulnerApp” es un visualizador de datos asociados al transporte público de la ciudad de Bogotá y Soacha,
-            estimados usando la información de la Encuesta de Movilidad de Bogotá 2019, en el podrá explorar un set de
-            variables de movilidad y su distribución por UTAM (Unidad Territorial de Análisis de la Movilidad), de la
-            misma manera, existen una serie de filtros asociados a factores socioeconómicos de sus habitantes.
-            <br><br>
-            Adicionalmente, podrá visualizar el índice de accesibilidad calculado para cada función de la ciudad, así
-            como los principales destinos asociados a cada motivo de viaje según la UTAM de origen, y consultar la
-            cobertura de los subsidios a la tarifa de transporte público.
+        <p-tabPanel header="{{'9DD530A9' | translate }}">
+          <p class="text">
+            {{'3DBD6BA9' | translate }}
+            {{'883DCA2C' | translate }}
           </p>
         </p-tabPanel>
-        <p-tabPanel header="De dónde vienen los datos?">
-          <p>Los datos utilizados para este visualizador provienen de la Encuesta de Movilidad de Bogotá 2019 y han sido
-            procesados utilizando python con el fin de estimar un índice de accesibilidad a través del transporte
-            público a las funciones básicas de la ciudad (Trabajo, estudio, salud, recreación y cultura) a partir de las
-            variables de movilidad asociadas a cada función.
-            <br><br>
-            Estas estimaciones hacen parte de la tesis de maestría en Ingeniería - Transporte de Carolina Fernández,
-            dirigida por César Ruiz, PhD. en la Universidad Nacional de Colombia sede Bogotá, la cual se enfoca en
-            revisar la accesibilidad como una expresión de la vulnerabilidad en la ciudad de Bogotá.
-            <br><br>
-            Próximamente estarán disponibles para su consulta la tesis y el repositorio GitHub asociados al proyecto de
-            investigación.
+        <p-tabPanel header="{{'9EDD0FC8' | translate }}">
+          <p class="text">
+            {{'CFF785D7' | translate }}
+            {{'752566E8' | translate }}
+            {{'56C30FAE' | translate }}
           </p>
+          <a href="https://repositorio.unal.edu.co/handle/unal/83918">
+            <img class="img-size" src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Logotipo_de_la_Universidad_Nacional_de_Colombia.svg" alt="">
+            <p>Repositorio UN</p>
+          </a>
         </p-tabPanel>
-        <p-tabPanel header="Cómo se usa?">
-          <p>
-            VulnerApp permite comparar y revisar para las distintas zonas de la ciudad las variables de movilidad
-            asociadas a cada motivo de viaje (Trabajo, Estudio, Salud, Recreación y cultura):
+        <p-tabPanel header="{{'83FFDA05' | translate }}">
+          <p class="text">
+            {{'44E454A6' | translate }}
           </p>
           <ul>
-            <li>Tiempo de viaje: cuánto tardo de un lugar a otro</li>
-            <li>Tiempo de acceso (caminata): cuánto tardó caminando hasta el paradero</li>
-            <li>Tiempo de espera: Cuánto se demora en llegar el bus</li>
-            <li>Costo adicional a la tarifa del viaje: Cuánto pagó además del pasaje</li>
-            <li>Probabilidad de costo adicional: Qué tanto riesgo tengo de tener que pagar más para ir de un lugar a
-              otro</li>
-            <li>Experiencia de viaje: Que tan mala es mi experiencia viajando</li>
-            <li>Número de etapas: Cuántos transbordos debo hacer para ir de un lugar a otro</li>
-            <li>Índice de accesibilidad: Qué tan fácil es acceder al motivo de viaje según la zona de origen</li>
+            <li>{{'5F1E1652' | translate }}</li>
+            <li>{{'D742A4FF' | translate }}</li>
+            <li>{{'09C6FBD2' | translate }}</li>
+            <li>{{'A3F74500' | translate }}</li>
+            <li>{{'A13651BA' | translate }}</li>
+            <li>{{'8F8C2073' | translate }}</li>
+            <li>{{'DF2D1E0A' | translate }}</li>
+            <li>{{'A84E0E08' | translate }}</li>
           </ul>
-          <p>
-            A su vez el panel de filtros contiene varios factores socioeconómicos que puede revisar, por ejemplo, nivel
-            de ingresos (SMMLV), nivel educativo entre otros y seleccionar todos o sólo algunos de ellos que quiera
-            consultar cómo se mueven en la ciudad
-            <br><br>
-            Adicionalmente, podrá revisar la cobertura de los subsidios al transporte público, seleccionando uno en el
-            panel inferior y moviendo el control deslizante de la parte superior derecha del mapa para ir y venir
-            fácilmente entre la vista de factores socioeconómicos y la de subsidios.
-            <br><br>
-            Por último, podrá consultar los principales destinos para cada motivo según la zona donde inicia el viaje,
-            dando click en ella y esperando un par de segundos.
-            <br><br>
-            Recuerde que podrá generar y limpiar sus consultas todas las veces que desee.
-            <br><br>
-            Tiene sugerencias para mejorar el visualizador o incluso cómo se comunica la información o cómo hacer más
-            amigable la interfaz, no sea tímida o tímido y escribanos al correo electrónico con sus ideas
+          <p class="text">
+            {{'79EDCAD5' | translate }}
+            {{'BE5591EB' | translate }}
+            {{'143A0A45' | translate }}
+            {{'77FDF69F' | translate }}
+            {{'89320344' | translate }}
           </p>
         </p-tabPanel>
-        <p-tabPanel header="Indice de accesibilidad">
-          <p>
-            Este visualizador contiene además un índice de accesibilidad haciendo uso del transporte público a las
-            oportunidades que ofrece la ciudad, calculado, durante el desarrollo de la tesis mencionada, que toma como
-            insumos los valores para cada motivo de viaje de las variable de movilidad:
+        <p-tabPanel header="{{'8FB1E772' | translate }}">
+          <p class="text">
+            {{'03F38D3F' | translate }}
           </p>
           <ul>
-            <li>Tiempo de viaje</li>
-            <li>Tiempo de acceso (caminata)</li>
-            <li>Tiempo de espera</li>
-            <li>Probabilidad de costo adicional</li>
-            <li>Experiencia de viaje</li>
-            <li>Número de etapas</li>
+            <li>{{'CEF723E9' | translate }}</li>
+            <li>{{'424BE1E1' | translate }}</li>
+            <li>{{'6A805C47' | translate }}</li>
+            <li>{{'5D39A89B' | translate }}</li>
+            <li>{{'D157E653' | translate }}</li>
+            <li>{{'731E5E0D' | translate }}</li>
           </ul>
-          <p>
-            Mediante un método estadístico multivariado ACP (Análisis de componentes principales) se estima una medida
-            sintética que recopila todas estas
-            variables y que una vez normalizado entre valores de 0 a 1 permite comprender las condiciones de
-            accesibilidad de cada zona de origen de la ciudad. Donde 0 es la menor vulnerabilidad, es decir, las mejores
-            condiciones de accesibilidad y 1 es la peor accesibilidad posible, que traduce en mayor vulnerabilidad y
-            mayores limitaciones de acceso, ya sea al trabajo, estudio o a servicios de salud, recreación y cultura.
-            <br><br>
-            Próximamente estarán disponibles para su consulta la tesis y el repositorio GitHub asociados al proyecto de
-            investigación, dónde podrá indagar más al respecto de esta metodología o en su defecto escribir a
-            lcfernandezpe@gmail.com
+          <p class="text">
+            {{'E367990E' | translate }}
+            {{'C5DE2744' | translate }}
+          </p>
+          <a href="https://repositorio.unal.edu.co/handle/unal/83918">
+            <img class="img-size" src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Logotipo_de_la_Universidad_Nacional_de_Colombia.svg" alt="">
+            <p>Repositorio UN</p>
+          </a>
+        </p-tabPanel>
+        <p-tabPanel header="{{'4832F246' | translate }}">
+          <p class="text">
+            {{'5D648B0A' | translate }}
+            {{'140B4861' | translate }}
+            {{'9B601FC5' | translate }}
+            {{'40D2933F' | translate }}
+            {{'0FC7D1D3' | translate }}
+            {{'2CC1AD02' | translate }}
           </p>
         </p-tabPanel>
-        <p-tabPanel header="Qué encontramos?">
-          <p>
-            La baja accesibilidad es un factor que intensifica la vulnerabilidad socioeconómica, por lo que es por sí
-            misma una dimensión de la vulnerabilidad, que en este caso tiene un ámbito espacial.
-            <br><br>
-            Se logró construir una medida sintética que mide el grado de vulnerabilidad asociado, permitiendo
-            identificar en el territorio aquellas zonas donde habitan personas con mayores desventajas y a las que
-            cualquier cambio desfavorable en el servicio de transporte público les afectará drásticamente
-            <br><br>
-            No es coincidencia que las zonas con peores niveles de accesibilidad según el índice calculado, son a su vez
-            aquellas que tienen una alta de concentración de condiciones de vulnerabilidad socioeconómica, lo que
-            demuestra que existen marcadas diferencias y desigualdades en el territorio, donde aquellos que son más
-            vulnerables ven limitadas desde una noción espacial y de movilidad su acceso a las oportunidades. Estas
-            oportunidades pueden ser insumos que permitan la movilidad social de las comunidades, por lo que ver
-            limitada esta accesibilidad, solo profundiza la vulnerabilidad y ayuda a contribuir a procesos de exclusión
-            social.
-            <br><br>
-            Se observa que aquellas UTAM que tienen índices más cercanos a 1, lo que indica vulnerabilidad social
-            asociada a accesibilidad, coinciden con aquellas unidades territoriales donde se concentran mayores valores
-            de las variables de movilidad. Es decir, aquellas zonas donde los habitantes deben incurrir en mayores
-            esfuerzos para acceder a la ciudad, esto significa que el índice refleja apropiadamente dicha vulnerabilidad
-            que está condicionada por la movilidad.
-            <br><br>
-            La revisión de los niveles de accesibilidad, al ser una expresión espacial del potencial de las
-            oportunidades y las posibilidades de alcanzarlas, brinda una posibilidad de revisar socio espacialmente la
-            vulnerabilidad social, dado que la baja accesibilidad como desventaja social está vinculada directamente a
-            las dinámicas de movilidad del territorio.
-            <br><br>
-            El hecho que las mujeres sean quienes principalmente hacen uso de esta oferta de transporte indica que son
-            quienes se ven más reflejadas y afectadas por los índices de accesibilidad
-          </p>
-        </p-tabPanel>
-        <p-tabPanel header="Créditos">
+        <p-tabPanel header="{{'492CC3B7' | translate }}">
           <div class="d-flex">
             <span>
-              <img class="rounded-circle mx-4"
+              <img class="rounded-circle mx-4 img-size"
                 src="https://media.licdn.com/dms/image/C4E03AQFrZHWqahGkiw/profile-displayphoto-shrink_100_100/0/1650749641730?e=1689811200&v=beta&t=44vsmzTOsaEdRiE1bU8I7ezBGbVFhFnzY-_YYwop32s"
                 alt="">
             </span>
@@ -137,14 +89,14 @@
 
           <div class="d-flex mt-4">
             <span>
-              <img class="rounded-circle mx-4"
-                src="https://media.licdn.com/dms/image/C4E03AQGDorbKPrsVkA/profile-displayphoto-shrink_100_100/0/1555444550664?e=1689811200&v=beta&t=1CYTswk2n0_LlvOwhbFiNRyzhTTqHuS3PgRJCs3uAWQ"
+              <img class="rounded-circle mx-4 img-size"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBrTh30CWEhugEJmAGX9QwTFuLh0SLe4ktfEu5lJGdv0Cn3s-WZJj38ds489CBfXzecxs&usqp=CAU"
                 alt="">
             </span>
             <span class="d-flex align-items-center">
               <p>
                 <strong>Carolina Fernandez - Procesamiento y análisis de datos: </strong>
-            Diseñadora industrial, magister en transporte, investigadora y consultora en movilidad sostenible
+                Diseñadora industrial, magister en transporte, investigadora y consultora en movilidad sostenible
               </p>
             </span>
           </div>

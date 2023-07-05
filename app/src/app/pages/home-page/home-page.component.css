@@ -1,3 +1,12 @@
 .container {
   background-color: white;
 }
+
+.text {
+  white-space: pre-wrap;
+}
+
+.img-size{
+  height: 100px;
+  width: 100px;
+}
