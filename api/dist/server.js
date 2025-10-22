@@ -1,45 +1,44 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const queryGraphQl = __importStar(require("./controllers/queryGraphql"));
 const path = require("path");
 const os = require("os");
+const mongodb_1 = require("mongodb");
+const categories_repository_1 = require("./repositories/categories.repository");
+const simple_service_1 = require("./services/simple.service");
+const simple_controller_1 = require("./controllers/simple.controller");
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config({ path: ".env" });
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 4000;
 const HOST = os.hostname();
+const MONGO_USER = process.env.MONGO_USER;
+const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
+const MONGO_URL = process.env.MONGO_URL;
+const URL = `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_URL}/?retryWrites=true&w=majority&appName=vulnerapp`;
+const client = new mongodb_1.MongoClient(URL, {
+    serverApi: {
+        version: mongodb_1.ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
+    },
+    timeoutMS: 3000
+});
+client.connect();
+const repository = (0, categories_repository_1.CategoriesRepository)({ client });
+const service = (0, simple_service_1.AppService)({ repository });
+const controller = (0, simple_controller_1.AppController)({ service });
 app.use((req, _, next) => {
     console.log('Time:', Date.now(), req.originalUrl);
     next();
 });
 app.use(express_1.default.static('build'));
-app.get('/api/info', queryGraphQl.getUtamByFilter);
-app.get('/api/od', queryGraphQl.getOdByFilter);
+app.use('/api', controller.getRouter());
+//app.get('/api/info', queryGraphQl.getUtamByFilter);
+//app.get('/api/od', queryGraphQl.getOdByFilter);
 app.get('/*', (_, res) => res.sendFile(path.resolve('build/index.html')));
 app.listen(PORT, () => console.log(`Server is running here https://${HOST}:${PORT}`));
 //# sourceMappingURL=server.js.map
