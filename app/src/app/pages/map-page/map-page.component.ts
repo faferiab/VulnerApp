@@ -10,9 +10,10 @@ import { UtamBuilder } from './utils/UtamLayer';
 import { getDescription } from './utils/category-description';
 
 @Component({
-  selector: 'app-map-page',
-  templateUrl: './map-page.component.html',
-  styleUrls: ['./map-page.component.css'],
+    selector: 'app-map-page',
+    templateUrl: './map-page.component.html',
+    styleUrls: ['./map-page.component.css'],
+    standalone: false
 })
 export class MapPageComponent implements OnInit {
   public functions: Item[];

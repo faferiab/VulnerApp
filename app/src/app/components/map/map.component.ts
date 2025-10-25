@@ -14,9 +14,10 @@ export type ZonaMap = {
   side: 'LEFT' | 'RIGHT' | 'NONE';
 };
 @Component({
-  selector: 'app-map',
-  templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css'],
+    selector: 'app-map',
+    templateUrl: './map.component.html',
+    styleUrls: ['./map.component.css'],
+    standalone: false
 })
 export class MapComponent implements AfterViewInit {
   @Input() set zonas(zonas: ZonaMap[]) {
