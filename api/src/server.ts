@@ -3,11 +3,11 @@ import * as queryGraphQl from './controllers/queryGraphql';
 import path = require('path');
 import os = require('os');
 import { MongoClient, ServerApiVersion } from 'mongodb';
-import { CategoriesRepository } from './repositories/categories.repository';
 import { AppService } from './services/simple.service';
 import { AppController } from './controllers/simple.controller';
 
 import dotenv from "dotenv";
+import { AppRepository } from './repositories/mongodb.repository';
 dotenv.config({ path: ".env" });
 
 const app = express();
@@ -28,7 +28,7 @@ const client = new MongoClient(URL, {
 });
 client.connect();
 
-const repository = CategoriesRepository({ client });
+const repository = AppRepository({ client });
 const service = AppService({ repository });
 const controller = AppController({ service });
 

@@ -30,8 +30,8 @@ const LanguageInitApp = {
     HttpClientModule,
     PrimengModule,
     AppRoutingModule,
-    NgxGoogleAnalyticsModule.forRoot('G-HTS7Q45KS5'),
-    NgxGoogleAnalyticsRouterModule
+    //NgxGoogleAnalyticsModule.forRoot('G-HTS7Q45KS5'),
+    //NgxGoogleAnalyticsRouterModule
 
   ],
   declarations: [

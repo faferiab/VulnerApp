@@ -6,7 +6,7 @@
     "start": "npm run serve",
     "serve": "node ./dist/server.js",
     "build": "npm run build-ts",
-    "start:watch": "nodemon src/server.ts",
+    "start:watch": "nodemon src/server.enterprise.ts",
     "build-ts": "tsc"
   },
   "dependencies": {

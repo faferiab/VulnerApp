@@ -1,24 +1,14 @@
-import express, { Application } from 'express';
 import cors from 'cors';
-import path from 'path';
-import os from 'os';
 import dotenv from 'dotenv';
-
-// Import middleware
-import { 
-  errorHandler, 
-  notFoundHandler, 
-  requestIdMiddleware, 
-  requestLogger, 
-  responseTimeMiddleware 
-} from './middleware/error.middleware';
-
-// Import controllers
-import { VulnerAppController } from './vulnerapp.controller';
-import { VulnerAppService } from './vulnerapp.service';
+import express, { Application } from 'express';
+import os from 'os';
+import path from 'path';
 
 // Import legacy controller for backward compatibility
-import * as queryGraphQl from './controllers/queryGraphql';
+import { MongoClient, ServerApiVersion } from 'mongodb';
+import { AppController, IRestController } from './controllers/simple.controller';
+import { AppRepository } from './repositories/mongodb.repository';
+import { AppService } from './services/simple.service';
 
 // Load environment variables
 dotenv.config({ path: '.env' });
@@ -30,24 +20,22 @@ class VulnerAppServer {
   private app: Application;
   private readonly port: number;
   private readonly host: string;
-  private vulnerAppController: VulnerAppController;
+  private vulnerAppController: IRestController;
 
   constructor() {
     this.app = express();
     this.port = parseInt(process.env.PORT || '4000');
     this.host = os.hostname();
-    
+
     // Initialize services and controllers
     this.initializeServices();
-    
+
     // Setup middleware
     this.setupMiddleware();
-    
+
     // Setup routes
     this.setupRoutes();
-    
-    // Setup error handling
-    this.setupErrorHandling();
+
   }
 
   /**
@@ -55,9 +43,24 @@ class VulnerAppServer {
    */
   private initializeServices(): void {
     try {
-      const vulnerAppService = new VulnerAppService();
-      this.vulnerAppController = new VulnerAppController(vulnerAppService);
-      
+      const MONGO_USER = process.env.MONGO_USER;
+      const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
+      const MONGO_URL = process.env.MONGO_URL;
+      const URL = `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_URL}/?retryWrites=true&w=majority&appName=vulnerapp`
+      const client = new MongoClient(URL, {
+        serverApi: {
+          version: ServerApiVersion.v1,
+          strict: true,
+          deprecationErrors: true,
+        },
+        timeoutMS: 3000
+      });
+      client.connect();
+
+      const repository = AppRepository({ client });
+      const service = AppService({ repository });
+      this.vulnerAppController = AppController({ service });
+
       console.log('✅ Services initialized successfully');
     } catch (error) {
       console.error('❌ Failed to initialize services:', error);
@@ -69,20 +72,13 @@ class VulnerAppServer {
    * Setup application middleware
    */
   private setupMiddleware(): void {
-    // Trust proxy for accurate IP addresses
-    this.app.set('trust proxy', true);
-
-    // Request tracking and logging
-    this.app.use(requestIdMiddleware);
-    this.app.use(requestLogger);
-    this.app.use(responseTimeMiddleware);
 
     // CORS configuration
     this.app.use(cors({
       origin: process.env.ALLOWED_ORIGINS?.split(',') || '*',
       credentials: true,
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-      allowedHeaders: ['Content-Type', 'Authorization', 'X-Request-ID']
+      methods: ['GET', 'OPTIONS'],
+      allowedHeaders: ['Content-Type']
     }));
 
     // Body parsing
@@ -109,12 +105,8 @@ class VulnerAppServer {
       });
     });
 
-    // API v1 routes (new enterprise controller)
-    this.app.use('/api/v1', this.vulnerAppController.getRouter());
-
-    // Legacy API routes (for backward compatibility)
-    this.app.get('/api/info', queryGraphQl.getUtamByFilter);
-    this.app.get('/api/od', queryGraphQl.getOdByFilter);
+    // API routes (new enterprise controller)
+    this.app.use('/api', this.vulnerAppController.getRouter());
 
     // Serve Angular application for all other routes
     this.app.get('/*', (req, res) => {
@@ -122,19 +114,6 @@ class VulnerAppServer {
     });
 
     console.log('✅ Routes configured successfully');
-  }
-
-  /**
-   * Setup error handling
-   */
-  private setupErrorHandling(): void {
-    // 404 handler (must be before error handler)
-    this.app.use(notFoundHandler);
-
-    // Global error handler (must be last)
-    this.app.use(errorHandler);
-
-    console.log('✅ Error handling configured successfully');
   }
 
   /**
@@ -154,18 +133,15 @@ class VulnerAppServer {
 Available Endpoints:
 • GET  /health              - Server health check
 • GET  /api/v1/health       - Detailed health check with service status
-• GET  /api/v1/metrics      - Application metrics
 • GET  /api/v1/utam         - UTAM data (new enterprise endpoint)
 • GET  /api/v1/od           - OD data (new enterprise endpoint)
-• GET  /api/info            - Legacy UTAM endpoint
-• GET  /api/od              - Legacy OD endpoint
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         `);
       });
 
       // Graceful shutdown handling
       this.setupGracefulShutdown();
-      
+
     } catch (error) {
       console.error('❌ Failed to start server:', error);
       process.exit(1);
@@ -178,7 +154,7 @@ Available Endpoints:
   private setupGracefulShutdown(): void {
     const gracefulShutdown = (signal: string) => {
       console.log(`\n🛑 Received ${signal}. Starting graceful shutdown...`);
-      
+
       // Close server
       process.exit(0);
     };
