@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,29 +23,19 @@ const LanguageInitApp = {
   multi: true,
 };
 
-@NgModule({
-  imports: [
-    FormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    PrimengModule,
-    AppRoutingModule,
-    //NgxGoogleAnalyticsModule.forRoot('G-HTS7Q45KS5'),
-    //NgxGoogleAnalyticsRouterModule
-
-  ],
-  declarations: [
-    AppComponent,
-    FooterComponent,
-    HeaderComponent,
-    MapComponent,
-    HomePageComponent,
-    MapPageComponent,
-    TranslatePipe,
-    DropdownComponent,
-    SwitchComponent,
-  ],
-  providers: [QueryMapService, LanguageInitApp, LanguageService],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        FooterComponent,
+        HeaderComponent,
+        MapComponent,
+        HomePageComponent,
+        MapPageComponent,
+        TranslatePipe,
+        DropdownComponent,
+        SwitchComponent,
+    ],
+    bootstrap: [AppComponent], imports: [FormsModule,
+        BrowserAnimationsModule,
+        PrimengModule,
+        AppRoutingModule], providers: [QueryMapService, LanguageInitApp, LanguageService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
