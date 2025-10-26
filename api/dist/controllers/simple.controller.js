@@ -11,19 +11,38 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppController = void 0;
 const express_1 = require("express");
+const app_errors_1 = require("../errors/app-errors");
 class RestController {
     constructor(service) {
         this.service = service;
         this.router = (0, express_1.Router)();
         this.getUtamByFilter = (req, res) => __awaiter(this, void 0, void 0, function* () {
-            const { es, ig, fn, sf, ic, ed, sd } = req.query;
-            const result = yield this.service.getUtamByFilter(es, ig, fn, sf, ic, ed, sd);
-            res.json(result);
+            try {
+                const { es, ig, fn, sf, ic, ed, sd } = req.query;
+                const result = yield this.service.getUtamByFilter(es, ig, fn, sf, ic, ed, sd);
+                res.json(result);
+            }
+            catch (error) {
+                if (error instanceof app_errors_1.AppError) {
+                    res.status(error.statusCode).json({ error: error.message });
+                    return;
+                }
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
         });
         this.getOdByFilter = (req, res) => __awaiter(this, void 0, void 0, function* () {
-            const { utam, mv } = req.query;
-            const result = yield this.service.getOdByFilter(utam, mv);
-            res.json(result);
+            try {
+                const { utam, mv } = req.query;
+                const result = yield this.service.getOdByFilter(utam, mv);
+                res.json(result);
+            }
+            catch (error) {
+                if (error instanceof app_errors_1.AppError) {
+                    res.status(error.statusCode).json({ error: error.message });
+                    return;
+                }
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
         });
     }
     getRouter() {

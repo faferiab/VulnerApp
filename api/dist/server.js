@@ -7,10 +7,10 @@ const express_1 = __importDefault(require("express"));
 const path = require("path");
 const os = require("os");
 const mongodb_1 = require("mongodb");
-const categories_repository_1 = require("./repositories/categories.repository");
 const simple_service_1 = require("./services/simple.service");
 const simple_controller_1 = require("./controllers/simple.controller");
 const dotenv_1 = __importDefault(require("dotenv"));
+const mongodb_repository_1 = require("./repositories/mongodb.repository");
 dotenv_1.default.config({ path: ".env" });
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 4000;
@@ -28,7 +28,7 @@ const client = new mongodb_1.MongoClient(URL, {
     timeoutMS: 3000
 });
 client.connect();
-const repository = (0, categories_repository_1.CategoriesRepository)({ client });
+const repository = (0, mongodb_repository_1.AppRepository)({ client });
 const service = (0, simple_service_1.AppService)({ repository });
 const controller = (0, simple_controller_1.AppController)({ service });
 app.use((req, _, next) => {

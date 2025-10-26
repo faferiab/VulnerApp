@@ -1,43 +1,18 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
-const path_1 = __importDefault(require("path"));
-const os_1 = __importDefault(require("os"));
 const dotenv_1 = __importDefault(require("dotenv"));
-// Import middleware
-const error_middleware_1 = require("./middleware/error.middleware");
-// Import controllers
-const vulnerapp_controller_1 = require("./vulnerapp.controller");
-const vulnerapp_service_1 = require("./vulnerapp.service");
+const express_1 = __importDefault(require("express"));
+const os_1 = __importDefault(require("os"));
+const path_1 = __importDefault(require("path"));
 // Import legacy controller for backward compatibility
-const queryGraphQl = __importStar(require("./controllers/queryGraphql"));
+const mongodb_1 = require("mongodb");
+const simple_controller_1 = require("./controllers/simple.controller");
+const mongodb_repository_1 = require("./repositories/mongodb.repository");
+const simple_service_1 = require("./services/simple.service");
 // Load environment variables
 dotenv_1.default.config({ path: '.env' });
 /**
@@ -54,16 +29,28 @@ class VulnerAppServer {
         this.setupMiddleware();
         // Setup routes
         this.setupRoutes();
-        // Setup error handling
-        this.setupErrorHandling();
     }
     /**
      * Initialize services and controllers
      */
     initializeServices() {
         try {
-            const vulnerAppService = new vulnerapp_service_1.VulnerAppService();
-            this.vulnerAppController = new vulnerapp_controller_1.VulnerAppController(vulnerAppService);
+            const MONGO_USER = process.env.MONGO_USER;
+            const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
+            const MONGO_URL = process.env.MONGO_URL;
+            const URL = `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_URL}/?retryWrites=true&w=majority&appName=vulnerapp`;
+            const client = new mongodb_1.MongoClient(URL, {
+                serverApi: {
+                    version: mongodb_1.ServerApiVersion.v1,
+                    strict: true,
+                    deprecationErrors: true,
+                },
+                timeoutMS: 3000
+            });
+            client.connect();
+            const repository = (0, mongodb_repository_1.AppRepository)({ client });
+            const service = (0, simple_service_1.AppService)({ repository });
+            this.vulnerAppController = (0, simple_controller_1.AppController)({ service });
             console.log('✅ Services initialized successfully');
         }
         catch (error) {
@@ -76,24 +63,18 @@ class VulnerAppServer {
      */
     setupMiddleware() {
         var _a;
-        // Trust proxy for accurate IP addresses
-        this.app.set('trust proxy', true);
-        // Request tracking and logging
-        this.app.use(error_middleware_1.requestIdMiddleware);
-        this.app.use(error_middleware_1.requestLogger);
-        this.app.use(error_middleware_1.responseTimeMiddleware);
         // CORS configuration
         this.app.use((0, cors_1.default)({
             origin: ((_a = process.env.ALLOWED_ORIGINS) === null || _a === void 0 ? void 0 : _a.split(',')) || '*',
             credentials: true,
-            methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-            allowedHeaders: ['Content-Type', 'Authorization', 'X-Request-ID']
+            methods: ['GET', 'OPTIONS'],
+            allowedHeaders: ['Content-Type']
         }));
         // Body parsing
         this.app.use(express_1.default.json({ limit: '10mb' }));
         this.app.use(express_1.default.urlencoded({ extended: true, limit: '10mb' }));
-        // Static file serving
-        this.app.use(express_1.default.static('build'));
+        // Static file serving - serve from build/browser where Angular files are located
+        this.app.use(express_1.default.static('build/browser'));
         console.log('✅ Middleware configured successfully');
     }
     /**
@@ -109,26 +90,13 @@ class VulnerAppServer {
                 environment: process.env.NODE_ENV || 'development'
             });
         });
-        // API v1 routes (new enterprise controller)
-        this.app.use('/api/v1', this.vulnerAppController.getRouter());
-        // Legacy API routes (for backward compatibility)
-        this.app.get('/api/info', queryGraphQl.getUtamByFilter);
-        this.app.get('/api/od', queryGraphQl.getOdByFilter);
+        // API routes (new enterprise controller)
+        this.app.use('/api', this.vulnerAppController.getRouter());
         // Serve Angular application for all other routes
         this.app.get('/*', (req, res) => {
-            res.sendFile(path_1.default.resolve('build/index.html'));
+            res.sendFile(path_1.default.resolve('build/browser/index.html'));
         });
         console.log('✅ Routes configured successfully');
-    }
-    /**
-     * Setup error handling
-     */
-    setupErrorHandling() {
-        // 404 handler (must be before error handler)
-        this.app.use(error_middleware_1.notFoundHandler);
-        // Global error handler (must be last)
-        this.app.use(error_middleware_1.errorHandler);
-        console.log('✅ Error handling configured successfully');
     }
     /**
      * Start the server
@@ -147,11 +115,8 @@ class VulnerAppServer {
 Available Endpoints:
 • GET  /health              - Server health check
 • GET  /api/v1/health       - Detailed health check with service status
-• GET  /api/v1/metrics      - Application metrics
 • GET  /api/v1/utam         - UTAM data (new enterprise endpoint)
 • GET  /api/v1/od           - OD data (new enterprise endpoint)
-• GET  /api/info            - Legacy UTAM endpoint
-• GET  /api/od              - Legacy OD endpoint
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         `);
             });

@@ -85,8 +85,8 @@ class VulnerAppServer {
     this.app.use(express.json({ limit: '10mb' }));
     this.app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-    // Static file serving
-    this.app.use(express.static('build'));
+    // Static file serving - serve from build/browser where Angular files are located
+    this.app.use(express.static('build/browser'));
 
     console.log('✅ Middleware configured successfully');
   }
@@ -110,7 +110,7 @@ class VulnerAppServer {
 
     // Serve Angular application for all other routes
     this.app.get('/*', (req, res) => {
-      res.sendFile(path.resolve('build/index.html'));
+      res.sendFile(path.resolve('build/browser/index.html'));
     });
 
     console.log('✅ Routes configured successfully');

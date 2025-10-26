@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "npm run serve",
-    "serve": "node ./dist/server.js",
+    "serve": "node ./dist/server.enterprise.js",
     "build": "npm run build-ts",
     "start:watch": "nodemon src/server.enterprise.ts",
     "build-ts": "tsc"
