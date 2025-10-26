@@ -7,7 +7,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { PanelModule } from 'primeng/panel';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { SliderModule } from 'primeng/slider';
-import { TabViewModule } from 'primeng/tabview';
+import { TabsModule } from 'primeng/tabs';
 
 const primeModules = [
   DropdownModule,
@@ -18,7 +18,7 @@ const primeModules = [
   AccordionModule,
   SliderModule,
   ProgressSpinnerModule,
-  TabViewModule,
+  TabsModule,
 ];
 
 @NgModule({

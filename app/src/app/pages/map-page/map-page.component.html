@@ -8,65 +8,54 @@
         <h5>
           {{ 'F7967E8C' | translate }}
         </h5>
-        <app-dropdown
-          [options]="functions"
-          [(ngModel)]="selectedFunction"
-        ></app-dropdown>
+        <app-dropdown [options]="functions" [(ngModel)]="selectedFunction"></app-dropdown>
         <h5 class="my-2">
           {{ 'F7967E9D' | translate }}
         </h5>
-        <app-dropdown
-          [options]="categories"
-          [(ngModel)]="selectedCategory"
-        ></app-dropdown>
+        <app-dropdown [options]="categories" [(ngModel)]="selectedCategory"></app-dropdown>
       </p-card>
       <div class="mt-2">
         <p-card>
           <div>
             <h5>{{ '962D528D' | translate }}</h5>
-            <p-accordion>
-              <p-accordionTab header="{{ '4F149B82' | translate }}">
-                <div *ngFor="let estrato of estratos">
-                  <p-checkbox
-                    name="estratoGroup"
-                    [value]="estrato.code"
-                    [(ngModel)]="selectedEstratos"
-                  ></p-checkbox>
-                  <label [for]="estrato.code" class="px-2">{{
-                    estrato.name | translate
-                  }}</label>
-                </div>
-              </p-accordionTab>
-              <p-accordionTab header="{{ '4A187CB3' | translate }}">
-                <p>{{ ingresos[0] + ' - ' + ingresos[1] }}</p>
-                <p-slider
-                  [(ngModel)]="ingresos"
-                  [min]="1"
-                  [max]="10"
-                  [range]="true"
-                ></p-slider>
-              </p-accordionTab>
-              <p-accordionTab header="{{ '296FC554' | translate }}">
-                <p>{{ indice[0] / 100 + ' - ' + indice[1] / 100 }}</p>
-                <p-slider
-                  [(ngModel)]="indice"
-                  [min]="0"
-                  [max]="100"
-                  [range]="true"
-                ></p-slider>
-              </p-accordionTab>
-              <p-accordionTab header="{{ 'F1E17D5E' | translate }}">
-                <div *ngFor="let educativo of educativos">
-                  <p-checkbox
-                    name="educativoGroup"
-                    [value]="educativo.code"
-                    [(ngModel)]="selectedEducativo"
-                  ></p-checkbox>
-                  <label [for]="educativo.code" class="px-2">{{
-                    educativo.name | translate
-                  }}</label>
-                </div>
-              </p-accordionTab>
+            <p-accordion value="0">
+              <p-accordion-panel value="0">
+                <p-accordion-header>{{ '4F149B82' | translate }}</p-accordion-header>
+                <p-accordion-content>
+                  <div *ngFor="let estrato of estratos">
+                    <p-checkbox name="estratoGroup" [value]="estrato.code" [(ngModel)]="selectedEstratos"></p-checkbox>
+                    <label [for]="estrato.code" class="px-2">{{
+                      estrato.name | translate
+                      }}</label>
+                  </div>
+                </p-accordion-content>
+              </p-accordion-panel>
+              <p-accordion-panel value="1">
+                <p-accordion-header>{{ '4A187CB3' | translate }}</p-accordion-header>
+                <p-accordion-content>
+                  <p>{{ ingresos[0] + ' - ' + ingresos[1] }}</p>
+                  <p-slider [(ngModel)]="ingresos" [min]="1" [max]="10" [step]="1" [range]="true"></p-slider>
+                </p-accordion-content>
+              </p-accordion-panel>
+              <p-accordion-panel value="2">
+                <p-accordion-header>{{ '296FC554' | translate }}</p-accordion-header>
+                <p-accordion-content>
+                  <p>{{ indice[0] / 100 + ' - ' + indice[1] / 100 }}</p>
+                  <p-slider [(ngModel)]="indice" [min]="0" [max]="100" [range]="true"></p-slider>
+                </p-accordion-content>
+              </p-accordion-panel>
+              <p-accordion-panel value="3">
+                <p-accordion-header>{{ 'F1E17D5E' | translate }}</p-accordion-header>
+                <p-accordion-content>
+                  <div *ngFor="let educativo of educativos">
+                    <p-checkbox name="educativoGroup" [value]="educativo.code"
+                      [(ngModel)]="selectedEducativo"></p-checkbox>
+                    <label [for]="educativo.code" class="px-2">{{
+                      educativo.name | translate
+                      }}</label>
+                  </div>
+                </p-accordion-content>
+              </p-accordion-panel>
             </p-accordion>
           </div>
         </p-card>
@@ -76,20 +65,13 @@
           <h5>
             {{ '29ED889F' | translate }}
           </h5>
-          <app-dropdown
-            [options]="subsidies"
-            [(ngModel)]="selectedSubsidies"
-          ></app-dropdown>
+          <app-dropdown [options]="subsidies" [(ngModel)]="selectedSubsidies"></app-dropdown>
         </p-card>
       </div>
       <div class="mt-2">
         <p-card>
           <p-button label="{{ '13733575' | translate }}" (onClick)="clear()"></p-button>
-          <p-button
-            class="px-2"
-            label="{{ 'C845C2B9' | translate }}"
-            (onClick)="generate()"
-          ></p-button>
+          <p-button class="px-2" label="{{ 'C845C2B9' | translate }}" (onClick)="generate()"></p-button>
         </p-card>
       </div>
     </div>

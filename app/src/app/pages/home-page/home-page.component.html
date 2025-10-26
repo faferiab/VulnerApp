@@ -1,107 +1,121 @@
 <div class="container h-50">
   <div class="row justify-content-center">
     <div class="col-9">
-      <p-tabView [scrollable]="true">
-        <p-tabPanel header="{{'9DD530A9' | translate }}">
-          <p class="text">
-            {{'3DBD6BA9' | translate }}
-            {{'883DCA2C' | translate }}
-          </p>
-        </p-tabPanel>
-        <p-tabPanel header="{{'9EDD0FC8' | translate }}">
-          <p class="text">
-            {{'CFF785D7' | translate }}
-            {{'752566E8' | translate }}
-            {{'56C30FAE' | translate }}
-          </p>
-          <a href="https://repositorio.unal.edu.co/handle/unal/83918">
-            <img class="img-size" src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Logotipo_de_la_Universidad_Nacional_de_Colombia.svg" alt="">
-            <p>Repositorio UN</p>
-          </a>
-        </p-tabPanel>
-        <p-tabPanel header="{{'83FFDA05' | translate }}">
-          <p class="text">
-            {{'44E454A6' | translate }}
-          </p>
-          <ul>
-            <li>{{'5F1E1652' | translate }}</li>
-            <li>{{'D742A4FF' | translate }}</li>
-            <li>{{'09C6FBD2' | translate }}</li>
-            <li>{{'A3F74500' | translate }}</li>
-            <li>{{'A13651BA' | translate }}</li>
-            <li>{{'8F8C2073' | translate }}</li>
-            <li>{{'DF2D1E0A' | translate }}</li>
-            <li>{{'A84E0E08' | translate }}</li>
-          </ul>
-          <p class="text">
-            {{'79EDCAD5' | translate }}
-            {{'BE5591EB' | translate }}
-            {{'143A0A45' | translate }}
-            {{'77FDF69F' | translate }}
-            {{'89320344' | translate }}
-          </p>
-        </p-tabPanel>
-        <p-tabPanel header="{{'8FB1E772' | translate }}">
-          <p class="text">
-            {{'03F38D3F' | translate }}
-          </p>
-          <ul>
-            <li>{{'CEF723E9' | translate }}</li>
-            <li>{{'424BE1E1' | translate }}</li>
-            <li>{{'6A805C47' | translate }}</li>
-            <li>{{'5D39A89B' | translate }}</li>
-            <li>{{'D157E653' | translate }}</li>
-            <li>{{'731E5E0D' | translate }}</li>
-          </ul>
-          <p class="text">
-            {{'E367990E' | translate }}
-            {{'C5DE2744' | translate }}
-          </p>
-          <a href="https://repositorio.unal.edu.co/handle/unal/83918">
-            <img class="img-size" src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Logotipo_de_la_Universidad_Nacional_de_Colombia.svg" alt="">
-            <p>Repositorio UN</p>
-          </a>
-        </p-tabPanel>
-        <p-tabPanel header="{{'4832F246' | translate }}">
-          <p class="text">
-            {{'5D648B0A' | translate }}
-            {{'140B4861' | translate }}
-            {{'9B601FC5' | translate }}
-            {{'40D2933F' | translate }}
-            {{'0FC7D1D3' | translate }}
-            {{'2CC1AD02' | translate }}
-          </p>
-        </p-tabPanel>
-        <p-tabPanel header="{{'492CC3B7' | translate }}">
-          <div class="d-flex">
-            <span>
-              <img class="rounded-circle mx-4 img-size"
-                src="https://media.licdn.com/dms/image/C4E03AQFrZHWqahGkiw/profile-displayphoto-shrink_100_100/0/1650749641730?e=1689811200&v=beta&t=44vsmzTOsaEdRiE1bU8I7ezBGbVFhFnzY-_YYwop32s"
+      <p-tabs value="0">
+        <p-tablist>
+          <p-tab value="0">{{'9DD530A9' | translate }}</p-tab>
+          <p-tab value="1">{{'9EDD0FC8' | translate }}</p-tab>
+          <p-tab value="2">{{'83FFDA05' | translate }}</p-tab>
+          <p-tab value="3">{{'8FB1E772' | translate }}</p-tab>
+          <p-tab value="4">{{'4832F246' | translate }}</p-tab>
+          <p-tab value="5">{{'492CC3B7' | translate }}</p-tab>
+        </p-tablist>
+        <p-tabpanels>
+          <p-tabpanel value="0">
+            <p class="text">
+              {{'3DBD6BA9' | translate }}
+              {{'883DCA2C' | translate }}
+            </p>
+          </p-tabpanel>
+          <p-tabpanel value="1">
+            <p class="text">
+              {{'CFF785D7' | translate }}
+              {{'752566E8' | translate }}
+              {{'56C30FAE' | translate }}
+            </p>
+            <a href="https://repositorio.unal.edu.co/handle/unal/83918">
+              <img class="img-size"
+                src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Logotipo_de_la_Universidad_Nacional_de_Colombia.svg"
                 alt="">
-            </span>
-            <span class="d-flex align-items-center">
-              <p>
-                <strong>Freddy Feria - Desarrollo web: </strong>
-                Desarrollador Fullstack con más de 8 años de experiencia en desarrollo de aplicaciones web
-              </p>
-            </span>
-          </div>
+              <p>Repositorio UN</p>
+            </a>
+          </p-tabpanel>
+          <p-tabpanel value="2">
+            <p class="text">
+              {{'44E454A6' | translate }}
+            </p>
+            <ul>
+              <li>{{'5F1E1652' | translate }}</li>
+              <li>{{'D742A4FF' | translate }}</li>
+              <li>{{'09C6FBD2' | translate }}</li>
+              <li>{{'A3F74500' | translate }}</li>
+              <li>{{'A13651BA' | translate }}</li>
+              <li>{{'8F8C2073' | translate }}</li>
+              <li>{{'DF2D1E0A' | translate }}</li>
+              <li>{{'A84E0E08' | translate }}</li>
+            </ul>
+            <p class="text">
+              {{'79EDCAD5' | translate }}
+              {{'BE5591EB' | translate }}
+              {{'143A0A45' | translate }}
+              {{'77FDF69F' | translate }}
+              {{'89320344' | translate }}
+            </p>
+          </p-tabpanel>
+          <p-tabpanel value="3">
+            <p class="text">
+              {{'03F38D3F' | translate }}
+            </p>
+            <ul>
+              <li>{{'CEF723E9' | translate }}</li>
+              <li>{{'424BE1E1' | translate }}</li>
+              <li>{{'6A805C47' | translate }}</li>
+              <li>{{'5D39A89B' | translate }}</li>
+              <li>{{'D157E653' | translate }}</li>
+              <li>{{'731E5E0D' | translate }}</li>
+            </ul>
+            <p class="text">
+              {{'E367990E' | translate }}
+              {{'C5DE2744' | translate }}
+            </p>
+            <a href="https://repositorio.unal.edu.co/handle/unal/83918">
+              <img class="img-size"
+                src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Logotipo_de_la_Universidad_Nacional_de_Colombia.svg"
+                alt="">
+              <p>Repositorio UN</p>
+            </a>
+          </p-tabpanel>
+          <p-tabpanel value="4">
+            <p class="text">
+              {{'5D648B0A' | translate }}
+              {{'140B4861' | translate }}
+              {{'9B601FC5' | translate }}
+              {{'40D2933F' | translate }}
+              {{'0FC7D1D3' | translate }}
+              {{'2CC1AD02' | translate }}
+            </p>
+          </p-tabpanel>
+          <p-tabpanel value="5">
+            <div class="d-flex">
+              <span>
+                <img class="rounded-circle mx-4 img-size"
+                  src="https://media.licdn.com/dms/image/C4E03AQFrZHWqahGkiw/profile-displayphoto-shrink_100_100/0/1650749641730?e=1689811200&v=beta&t=44vsmzTOsaEdRiE1bU8I7ezBGbVFhFnzY-_YYwop32s"
+                  alt="">
+              </span>
+              <span class="d-flex align-items-center">
+                <p>
+                  <strong>Freddy Feria - Desarrollo web: </strong>
+                  Desarrollador Fullstack con más de 8 años de experiencia en desarrollo de aplicaciones web
+                </p>
+              </span>
+            </div>
 
-          <div class="d-flex mt-4">
-            <span>
-              <img class="rounded-circle mx-4 img-size"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBrTh30CWEhugEJmAGX9QwTFuLh0SLe4ktfEu5lJGdv0Cn3s-WZJj38ds489CBfXzecxs&usqp=CAU"
-                alt="">
-            </span>
-            <span class="d-flex align-items-center">
-              <p>
-                <strong>Carolina Fernandez - Procesamiento y análisis de datos: </strong>
-                Diseñadora industrial, magister en transporte, investigadora y consultora en movilidad sostenible
-              </p>
-            </span>
-          </div>
-        </p-tabPanel>
-      </p-tabView>
+            <div class="d-flex mt-4">
+              <span>
+                <img class="rounded-circle mx-4 img-size"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBrTh30CWEhugEJmAGX9QwTFuLh0SLe4ktfEu5lJGdv0Cn3s-WZJj38ds489CBfXzecxs&usqp=CAU"
+                  alt="">
+              </span>
+              <span class="d-flex align-items-center">
+                <p>
+                  <strong>Carolina Fernandez - Procesamiento y análisis de datos: </strong>
+                  Diseñadora industrial, magister en transporte, investigadora y consultora en movilidad sostenible
+                </p>
+              </span>
+            </div>
+          </p-tabpanel>
+        </p-tabpanels>
+      </p-tabs>
     </div>
   </div>
 </div>
